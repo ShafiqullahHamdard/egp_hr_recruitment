@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!--EGP hr.applicant  Report Wizard form view-->
+        <record id="view_hr_applicant_report_report_form" model="ir.ui.view">
+            <field name="name">hr.applicant.report.form</field>
+            <field name="model">hr.applicant.report</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="position_ids" widget="many2many_tags"/>
+                        </group>
+                    </sheet>
+                    <footer>
+                        <button name="action_print_xlsx_report" string="Print" class="btn btn-primary" type="object"/>
+                        <button string="Cancel" class="btn btn-danger" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+        <record id="action_hr_applicant_report_report" model="ir.actions.act_window">
+            <field name="name">Applicant Report</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">hr.applicant.report</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+        <menuitem
+                id="applicant_report_menu"
+                name="Applicant Report"
+                action="action_hr_applicant_report_report"
+                parent="hr_recruitment.menu_crm_case_categ0_act_job"
+                sequence="3"/>
+    </data>
+
+</odoo>

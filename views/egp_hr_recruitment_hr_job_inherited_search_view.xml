@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+
+        <!-- Inherit the existing search view -->
+        <record id="view_job_filter_inherit" model="ir.ui.view">
+            <field name="name">hr.job.search.inherit</field>
+            <field name="model">hr.job</field>
+            <field name="inherit_id" ref="hr.view_job_filter"/>
+            <field name="arch" type="xml">
+                <!-- Use XPath to add new filters for the position_activeness_check field -->
+                <xpath expr="//filter" position="inside">
+                    <filter string="Active Position" name="position_active"
+                            domain="[('position_activeness_check', '=', 'position_active')]"/>
+                    <filter string="Empty Position" name="position_passive"
+                            domain="[('position_activeness_check', '=', 'position_passive')]"/>
+                    <filter string="In-Progress Position" name="position_under_process"
+                            domain="[('position_activeness_check', '=', 'position_under_process')]"/>
+                </xpath>
+<!--                <xpath expr="//search" position="inside">-->
+<!--                    <filter string="Position Status" name="group_by_position_status"-->
+<!--                            context="{'group_by':'position_activeness_check'}"/>-->
+<!--                </xpath>-->
+            </field>
+        </record>
+<!--         <record  id ="hr_job_user_rule" model ="ir.rule">-->
+<!--             <field name =""></field>-->
+<!--             <field model_id =""></field>-->
+<!--             <field name ="domain_force">[('1,'=' ,1')]</field>-->
+
+<!--         </record>-->
+
+
+
+    </data>
+</odoo>

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <record id="hr_recruitment_hr_applicant_tree_view" model="ir.ui.view">
+            <field name="name">hr_applicant_tree.inherited</field>
+            <field name="model">hr.applicant</field>
+            <field name="inherit_id" ref="hr_recruitment.crm_case_tree_view_job"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='priority']" position="attributes">
+                    <attribute name="groups">base.group_erp_manager</attribute>
+                </xpath>
+                <xpath expr="//field[@name='partner_mobile']" position="attributes">
+                    <attribute name="groups">base.group_erp_manager</attribute>
+                </xpath>
+                <xpath expr="//field[@name='categ_ids']" position="attributes">
+                    <attribute name="groups">base.group_erp_manager</attribute>
+                </xpath>
+                <xpath expr="//field[@name='user_id']" position="attributes">
+                    <attribute name="groups">base.group_erp_manager</attribute>
+                </xpath>
+                <xpath expr="//field[@name='priority']" position="attributes">
+                    <attribute name="groups">base.group_erp_manager</attribute>
+                </xpath>
+                <xpath expr="//field[@name='message_needaction']" position="attributes">
+                    <attribute name="groups">base.group_erp_manager</attribute>
+                </xpath>
+                <xpath expr="//field[@name='last_stage_id']" position="attributes">
+                    <attribute name="groups">base.group_erp_manager</attribute>
+                </xpath>
+                <xpath expr="//field[@name='date_last_stage_update']" position="attributes">
+                    <attribute name="groups">base.group_erp_manager</attribute>
+                </xpath>
+                <xpath expr="//field[@name='partner_name']" position="before">
+                    <field name="name"/>
+                </xpath>
+                <xpath expr="//field[@name='name']" position="after">
+                    <field name="partner_name"/>
+                </xpath>
+                <xpath expr="//field[@name='partner_name']" position="after">
+                    <field name="Father_name"/>
+                </xpath>
+                <xpath expr="//field[@name='Father_name']" position="after">
+                    <field name="gender"/>
+                </xpath>
+                <xpath expr="//field[@name='gender']" position="after">
+                    <field name="email_from"/>
+                </xpath>
+                <xpath expr="//field[@name='email_from']" position="after">
+                    <field name="partner_phone"/>
+                </xpath>
+                <xpath expr="//field[@name='partner_phone']" position="after">
+                    <field name="province"/>
+                </xpath>
+                <xpath expr="//field[@name='province']" position="after">
+                    <field name="native_language"/>
+                </xpath>
+                <xpath expr="//field[@name='native_language']" position="after">
+                    <field name="type_id"/>
+                </xpath>
+
+                <xpath expr="//field[@name='interviewer_ids']" position="after">
+                    <field name="committee_members"/>
+                </xpath>
+                <xpath expr="//field[@name='committee_members']" position="after">
+                    <field name="committee_chief"/>
+                </xpath>
+            </field>
+        </record>
+        <record id="egp_hr_recruitment_applicant_form_view1" model="ir.ui.view">
+            <field name="name">egp_hr_recruitment.applicant.form.view</field>
+            <field name="model">hr.applicant</field>
+            <field name="inherit_id" ref="hr_recruitment.hr_applicant_view_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//button[@name='create_employee_from_applicant']" position="attributes">
+                    <attribute name="groups"
+                               add="egp_hr_recruitment.group_recruitment_amir,base.group_erp_manager,egp_hr_recruitment.group_recruitment_Karshanas"
+                               separater=","/>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="hr_resume_line_rule_recruitment_amir" model="ir.rule">
+            <field name="name">manager can create resume_line_record</field>
+            <field name="model_id" ref="hr_skills.model_hr_resume_line"/>
+            <field name="groups"
+                   eval="[(4, ref('egp_hr_recruitment.group_recruitment_amir')), (4, ref('egp_hr_recruitment.group_recruitment_Karshanas'))]"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_unlink" eval="False"/>
+            <field name="domain_force">[(1,'=',1)]</field>
+        </record>
+        <record id="hr_employee_recruitment_amir" model="ir.rule">
+            <field name="name">manager can create hr_employee record</field>
+            <field name="model_id" ref="hr.model_hr_employee"/>
+            <field name="groups"
+                   eval="[(4, ref('egp_hr_recruitment.group_recruitment_amir')), (4, ref('egp_hr_recruitment.group_recruitment_Karshanas'))]"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_unlink" eval="False"/>
+            <field name="domain_force">[(1,'=',1)]</field>
+        </record>
+        <record id="egp_hr_recruitment_recruitment_job_kanban_view" model="ir.ui.view">
+            <field name="name">egp_hr_recruitment_hr.job.kanban.view</field>
+            <field name="model">hr.job</field>
+            <field name="inherit_id" ref="hr_recruitment.view_hr_job_kanban"/>
+            <field name="arch" type="xml">
+                <xpath expr="//div[@name='kanban_boxes']" position="attributes">
+                    <attribute name="groups"
+                               add="egp_hr_recruitment.group_recruitment_amir,base.group_erp_manager,egp_hr_recruitment.group_recruitment_Karshanas"
+                               separator=","/>
+                </xpath>
+            </field>
+        </record>
+        <record id="egp_hr_recruitment_recruitment_job_kanban_view12" model="ir.ui.view">
+            <field name="name">egp_hr_recruitment_hr.job.kanban.view12</field>
+            <field name="model">hr.job</field>
+            <field name="inherit_id" ref="website_hr_recruitment.hr_job_website_inherit"/>
+            <field name="arch" type="xml">
+
+                <xpath expr="//div[hasclass('o_kanban_card_header')]" position="attributes">
+                    <attribute name="groups"
+                               add="egp_hr_recruitment.group_recruitment_amir,base.group_erp_manager,egp_hr_recruitment.group_recruitment_Karshanas"
+                               separator=","/>
+                </xpath>
+            </field>
+        </record>
+<!--&lt;!&ndash;           Hiding Dirctory menu for group_recruitment_amir group&ndash;&gt;-->
+<!--    <record id="hr.menu_hr_employee" model="ir.ui.menu">-->
+<!--        <field name="groups_id" eval="[(4, ref('base.group_user')),(3, ref('egp_hr_recruitment.group_recruitment_amir'))]"/>-->
+<!--    </record>-->
+<!--          <record id="mail.menu_root_discuss" model="ir.ui.menu">-->
+<!--        &lt;!&ndash; Grant access to base users but hide from the recruitment_amir group &ndash;&gt;-->
+<!--        <field name="groups_id" eval="[(4, ref('base.group_user')), (3, ref('egp_hr_recruitment.group_recruitment_amir'))]"/>-->
+<!--    </record>-->
+    </data>
+</odoo>
+

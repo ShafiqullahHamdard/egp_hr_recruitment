@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+        <!--         Report action for xlsx -->
+        <record id="action_hr_applicant_xlsx_report" model="ir.actions.report">
+            <field name="name">Applicant Report</field>
+            <field name="model">hr.applicant.report</field>
+            <field name="report_type">xlsx</field>
+            <field name="report_name">egp_hr_recruitment.hr_applicant_xlsx_report_template</field>
+            <field name="report_file">egp_hr_recruitment.hr_applicant_xlsx_report_template</field>
+            <field name="print_report_name">'HR_Applicant_Report'</field>
+            <field name="binding_type">report</field>
+        </record>
+    </data>
+</odoo>

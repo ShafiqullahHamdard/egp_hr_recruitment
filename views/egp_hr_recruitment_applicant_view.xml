@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <record id="egp_hr_recruitment_applicant_form_inherited" model="ir.ui.view">
+            <field name="name">egp_hr.recruitment.applicant.form</field>
+            <field name="model">hr.applicant</field>
+            <field name="inherit_id" ref="hr_recruitment.hr_applicant_view_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name ='job_id']" position="after">
+                    <field name="position_code"/>
+                    <field name="position_rank_id"/>
+                    <field name="work_location_id"/>
+                </xpath>
+                <xpath expr="//field[@name='email_from']" position="before">
+                    <field name="Father_name"/>
+                    <field name="gender"/>
+                </xpath>
+                <xpath expr="//field[@name='partner_phone']" position="after">
+                    <field name="native_language"/>
+                </xpath>
+                <xpath expr="//field[@name='type_id']" position="after">
+                    <field name="total_years_experience"/>
+                </xpath>
+
+                <xpath expr="//field[@name='type_id']" position="attributes">
+                    <attribute name="required">1</attribute>
+                </xpath>
+
+                <xpath expr="//field[@name='availability']" position="after">
+                    <field name="committee_members" widget="many2many_tags"/>
+                </xpath>
+                <xpath expr="//field[@name='committee_members']" position="after">
+                    <field name="committee_member_positions"/>
+                </xpath>
+                <xpath expr="//field[@name='committee_member_positions']" position="after">
+                    <field name="committee_chief"/>
+                </xpath>
+                <xpath expr="//field[@name='committee_chief']" position="after">
+                    <field name="type_of_application"/>
+                </xpath>
+
+
+                <!--invisible of Recruitor and Interviewers fields-->
+                <xpath expr="//field[@name='user_id']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+
+                <xpath expr="//field[@name='interviewer_ids']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+                <xpath expr="//field[@name='priority']" position="attributes">
+                    <attribute name="groups">base.group_user</attribute>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

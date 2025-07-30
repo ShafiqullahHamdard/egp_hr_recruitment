@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="egp_hr_recruitment_badge_inherited_form_id" model="ir.ui.view">
+        <field name="name">egp_hr_recruitment_badge.inherited.form</field>
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="hr.view_employee_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='pin']" position="before">
+                <field name="issue_date"/>
+                <field name="expire_date"/>
+            </xpath>
+<!--            <xpath expr="//field[@name='mobile_phone']" position="before">-->
+<!--                <field name="employee_pashto_name"/>-->
+<!--            </xpath>-->
+<!--            <xpath expr="//field[@name='job_id']" position="after">-->
+<!--                <field name="pashto_position_title"/>-->
+<!--            </xpath>-->
+        </field>
+    </record>
+    <record id="hr.hr_employee_print_badge" model="ir.actions.report">
+        <field name="groups_id"
+               eval="[(4, ref('egp_hr_recruitment.group_recruitment_amir')), (4, ref('egp_hr_recruitment.group_recruitment_id_card_manager'))]"/>
+    </record>
+</odoo>

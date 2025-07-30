@@ -1,0 +1,32 @@
+{
+    'name': 'EGP HR Recruitment',
+    'version': '1.0',
+    'summary': 'MCIT-Afghanistan ERP HR module streamlines HR processes',
+    'description': 'MCIT-Afghanistan HRMIS',
+    'category': 'Custom',
+    'sequence': -3,
+    'author': 'Shafiqullah Hamdard',
+    'website': 'https://mcit.gov.af/',
+    'depends': ['website', 'website_hr_recruitment', 'base', 'xlsx_reporting', 'hr', 'hr_recruitment', 'mail',
+                'hr_recruitment_skills',
+                'hr_skills'],
+    'data': [
+        'security/egp_hr_recruitment_groups.xml',
+        'security/egp_hr_recruitment_security.xml',
+        'security/ir.model.access.csv',
+        'data/egp_hr_recruitment_users_default_data.xml',
+        'views/egp_hr_recruitment_applicant_view.xml',
+        'views/egp_hr_recruitment_create_employee_profile.xml',
+        'views/egp_hr_recruitment_employee_view.xml',
+         'views/egp_hr_recruitment_existing_fields.xml',
+        'views/egp_hr_recruitment_hr_applicant_list_view.xml',
+        'report/egp_hr_recruitment_employee_badge_card.xml',
+        'wizard/hr_applicant_report_wizard.xml',
+         'wizard/hr_applicant_report_action.xml'
+    ],
+    'demo': [
+    ],
+    'installable': True,
+    'application': True,
+    'auto_install': False,
+}
